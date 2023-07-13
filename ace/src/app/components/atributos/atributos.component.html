@@ -1,0 +1,28 @@
+<po-page-default p-title="Atributos">
+    <div class="po-row">
+      <po-button p-label="Adicionar" p-type="primary" (p-click)="novo()"></po-button>
+    </div>
+  
+    <div class="po-row">
+      <po-table [p-columns]="colunas" [p-items]="dados"></po-table>
+    </div>
+  
+    <po-modal [p-primary-action]="acoesPrimarias()" [p-secondary-action]="acoesSecundarias()">
+      <div class="po-row">
+        <po-input class="po-sm-4 po-md-4 po-xl-4" p-label="Chave" [(ngModel)]="chave"></po-input>
+        <po-input class="po-sm-8 po-md-8 po-xl-8" p-label="Descrição" [(ngModel)]="descricao"></po-input>
+      </div>
+  
+      <div class="po-row">
+        <po-textarea class="po-sm-12 po-md-12 po-xl-12" p-label="Explicação" [(ngModel)]="explicacao"></po-textarea>
+      </div>
+  
+      <div class="po-row tipo-btn">
+        <po-select class="po-sm-6 po-md-6 po-xl-6" p-label="Tipo de dados" [(ngModel)]="dados_selecionado"
+          [p-options]="tipo_dados" (p-change)="onChange($event)"></po-select>
+      </div>
+    </po-modal>
+
+    <po-loading-overlay p-screen-lock="true" [hidden]="exibe_loading"></po-loading-overlay>
+  
+  </po-page-default>

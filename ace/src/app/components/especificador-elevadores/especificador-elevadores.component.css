@@ -1,0 +1,58 @@
+.selecionar-cliente {
+    margin-top: 15px;
+}
+
+.header-modal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-pesquisa-cliente {
+    margin-top: 30px;
+}
+
+.texto-pesquisa-cliente {
+    margin-top: 35px;
+}
+
+.btn-obras {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion {
+    flex-direction: row;
+    overflow-x: auto;
+    margin: 5px;
+}
+
+.btn-opcoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.btn-opcoes button {
+    margin: 2px;
+}
+
+
+label {
+    font-family: var(--font-family-bold),sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.btn-remover-pavimento {
+    margin: 0px 20px 0px 20px;
+}
+
+.grid-pavimento {
+    margin-top: 15px;
+    width: 100%;
+}
+
+po-table {
+    margin: 30px 0px 30px 0px;
+}

@@ -1,0 +1,124 @@
+<div class="po-wrapper">
+    <div class="po-sm-2 po-md-2 po-xl-2 menu-accordion">
+        <po-accordion class="accordion">
+            <po-accordion-item p-label="Cliente" #questionOne>
+                <div class="po-row">
+                    <label for="">Nome</label>
+                    <input type="text">
+                </div>
+                <div class="po-row">
+                    <label for="">Localidade</label>
+                    <input type="text">
+                </div>
+                <div class="po-row selecionar-cliente">
+                    <po-button p-label="Selecionar cliente" p-type="primary" p-small
+                        (p-click)="abrirModal('cliente', 'Pesquisa clientes')"></po-button>
+                </div>
+            </po-accordion-item>
+            <ng-container *ngIf="exibe_obra != false">
+                <po-accordion-item p-label="Obra">
+                    <po-table [p-columns]="colunas_obras" [p-items]="data_obras"
+                        p-hide-columns-manager="true"></po-table>
+                    <div class="po-row btn-obras">
+                        <po-button p-small p-label="Abrir obra" p-type="primary"></po-button>
+                        <po-button p-small p-label="Nova obra" p-type="primary" (p-click)="novaObra()"></po-button>
+                    </div>
+                </po-accordion-item>
+            </ng-container>
+            <ng-container *ngIf="exibe_informacoes_obra != false">
+                <po-accordion-item p-label="Obra">
+                    <div class="po-row">
+                        <label for="">Código</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Código Obra Cliente</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Código Orçamento TOTVS</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Nro. Pavimentos</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Vro. Elevadores</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Data Necessidade</label>
+                        <input type="date">
+                    </div>
+                    <div class="po-row">
+                        <label for="">Data Entrega</label>
+                        <input type="text">
+                    </div>
+                    <div class="po-row btn-obras">
+                        <po-button p-label="Salvar" p-small p-type="primary"></po-button>
+                        <po-button p-label="Cancelar" p-type="danger" p-small></po-button>
+                    </div>
+                </po-accordion-item>
+            </ng-container>
+        </po-accordion>
+    </div>
+
+    <div class="po-sm-6 po-md-6 po-xl-6 po-row">
+        <div class="btn-opcoes">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="abrirModal('pavimentos', 'Pavimentos')">Pavimentos</button>
+            <button type="button" class="btn btn-secondary btn-sm">Medidas</button>
+            <button type="button" class="btn btn-secondary btn-sm">Elevadores</button>
+            <button type="button" class="btn btn-secondary btn-sm">Lista de Orçamentos</button>
+            <button type="button" class="btn btn-secondary btn-sm">Criar Estrutura de Árvore</button>
+            <button type="button" class="btn btn-secondary btn-sm">Histórico</button>
+        </div>
+    </div>
+
+    <div class="po-sm-4 po-md-4 po-xl-4 po-row"></div>
+
+    <po-modal [p-title]="titulo_modal" [p-primary-action]="acoesPrimarias()" [p-secondary-action]="acoesSecundarias()">
+        <div *ngIf="tipo_modal == 'cliente'">
+            <div class="po-row header-modal">
+                <po-input p-label="Codigo / CNPJ / Nome"></po-input>
+                <po-button class="btn-pesquisa-cliente" p-label="Pesquisar" p-type="primary"></po-button>
+                <p class="texto-pesquisa-cliente">mínimo 3 dígitos</p>
+            </div>
+
+            <div class="po-row">
+                <po-table [p-columns]="colunas" [p-items]="data" p-selectable="true" p-single-select="true"
+                    (p-selected)="clienteSelecionado($event)"></po-table>
+            </div>
+        </div>
+
+        <div *ngIf="tipo_modal == 'pavimentos'">
+            <div class="po-row">
+                <po-button p-label="Adicionar" p-type="primary" p-small></po-button>
+                <po-button class="btn-remover-pavimento" p-label="Remover" p-type="danger" p-small></po-button>
+                <po-button p-label="Adicionar vários" p-small></po-button>
+            </div>
+
+            <div class="po-row grid-pavimento">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pavimento</th>
+                            <th scope="col">Pé direito</th>
+                            <th scope="col">Macação visual</th>
+                            <th scope="col">Térreo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td><input type="number" value="3.5"></td>
+                            <td>1</td>
+                            <td><input type="checkbox" value="3.5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </po-modal>
+
+</div>

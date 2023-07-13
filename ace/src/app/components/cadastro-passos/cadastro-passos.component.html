@@ -1,0 +1,35 @@
+<po-page-default>
+    <div class="po-row po-sm-6 po-md-6 po-xl-6">
+    <div class="po-row po-sm-12 po-md-12 po-xl-12 primeira-linha">
+        <po-input></po-input>
+        <po-radio-group [p-columns]="2" [p-options]="radio_primeira_linha"></po-radio-group>
+        <po-button p-label="Buscar" p-type="primary"></po-button>
+    </div>
+    <po-tree-view class="po-sm-12 po-md-12 po-xl-12" [p-items]="items" p-selectable></po-tree-view>
+</div>
+    <div class="po-row po-sm-12 po-md-6 po-xl-6">
+        <po-combo class="po-sm-5 po-md-5 po-xl-5" p-label="Código do item" [p-disabled]="desabilitar_item"
+            p-filter-mode="starsWith"></po-combo>
+        <po-input class="po-sm-4 po-md-4 po-xl-4" p-label="Quantidade" [p-disabled]="desabilitar_descricao"></po-input>
+        <div class="id po-sm-3 po-md-3 po-xl-3">
+            <p>
+                ID: 124
+            </p>
+        </div>
+        <po-input class="po-sm-12 po-md-12 po-xl-12" p-label="Descrição"
+            [p-disabled]="desabilitar_condicional"></po-input>
+        <po-input class="po-sm-12 po-md-12 po-xl-12" p-label="Descrição alternativa"
+            [p-disabled]="desabilitar_quantidade"></po-input>
+        <po-radio-group class="po-sm-12 po-md-12 po-xl-12" [p-options]="items_radio" p-columns="3"
+            [p-disabled]="desabilitar_radio">
+        </po-radio-group>
+        <po-table class="po-sm-12 po-md-12 po-xl-12" [p-columns]="colunas" [p-items]="items_tabela"></po-table>
+        <div class="po-row btns">
+            <po-radio-group class="po-sm-4 po-md-4 po-xl-4" [p-options]="sem_pai"></po-radio-group>
+            <po-button p-type="primary" p-label="Cadastrar atributos" [routerLink]="['/atributos']"></po-button>
+            <po-button p-label="Editar" (p-click)="editar()"></po-button>
+            <po-button p-type="primary" p-label="Confirmar" [p-disabled]="desabilitar_confirmar"
+                (p-click)="confirmar()"></po-button>
+        </div>
+    </div>
+</po-page-default>

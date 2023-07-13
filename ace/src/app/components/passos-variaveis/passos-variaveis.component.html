@@ -1,0 +1,22 @@
+<po-page-default>
+    <po-tree-view class="po-sm-12 po-md-6 po-xl-6" [p-items]="items" p-selectable></po-tree-view>
+    <div class="po-row po-sm-12 po-md-6 po-xl-6">
+        <po-input class="po-sm-3 po-md-3 po-xl-3" p-label="Código do item" [p-disabled]="desabilitar_item"></po-input>
+        <po-input class="po-sm-7 po-md-7 po-xl-7" p-label="Descrição do item" [p-disabled]="desabilitar_descricao"></po-input>
+        <div class="id po-sm-2 po-md-2 po-xl-2">
+            <p>
+                ID: 124
+            </p>
+        </div>
+        <po-textarea class="po-sm-12 po-md-12 po-xl-12" p-label="Fórmula condicional" [p-disabled]="desabilitar_condicional"></po-textarea>
+        <po-textarea class="po-sm-12 po-md-12 po-xl-12" p-label="Fórmula quantidade" [p-disabled]="desabilitar_quantidade"></po-textarea>
+        <po-radio-group class="po-sm-12 po-md-12 po-xl-12" [p-options]="items_radio" p-columns="3" [p-disabled]="desabilitar_radio">
+        </po-radio-group>
+        <po-table class="po-sm-12 po-md-12 po-xl-12" [p-columns]="colunas" [p-items]="items_tabela"></po-table>
+        <div class="po-row btns">
+            <po-button p-type="primary" p-label="Cadastrar atributos" [routerLink]="['/atributos']"></po-button>
+            <po-button p-label="Editar" (p-click)="editar()"></po-button>
+            <po-button p-type="primary" p-label="Confirmar" [p-disabled]="desabilitar_confirmar" (p-click)="confirmar()"></po-button>
+        </div>
+    </div>
+</po-page-default>
